@@ -20,6 +20,10 @@ namespace Receipt
         public string fName { get; set; }
         public string lName { get; set; }
         public string aDreSS { get; set; }
+        public string phoneNumber { get; set; }
+        public string EMail { get; set; }
+
+
 
 
 
@@ -28,6 +32,8 @@ namespace Receipt
             fName = FirstText.Text;
             lName = LastText.Text;
             aDreSS = AdressText.Text;
+            phoneNumber = PhoneNumText.Text;
+            EMail = MailTextBox.Text;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

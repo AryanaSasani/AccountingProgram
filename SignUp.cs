@@ -149,6 +149,7 @@ namespace Receipt
 
         private void button1_Click(object sender, EventArgs e)
         {
+
             Error = false;
             firstname = FirstName.Text;
             lastname = LastName.Text;

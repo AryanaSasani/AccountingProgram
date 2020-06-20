@@ -7,7 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
+/// <summary>
+/// /users.txt File order :   Username|Password|Firstname|LastName|Email
+/// </summary>
 namespace Receipt
 {
     public partial class Form1 : Form
@@ -17,10 +21,24 @@ namespace Receipt
 
         public string userName;
         public string passWord;
-        public List<User> usersList = new List<User>();
+        //public List<User> usersList = new List<User>();
         public Form1()
         {
             InitializeComponent();
+            string dataPath = "data"; // your code goes here
+
+            bool exists = System.IO.Directory.Exists(dataPath);
+
+            if (!exists)
+                System.IO.Directory.CreateDirectory(dataPath);
+
+            if (File.Exists("users.txt") == false)
+            {
+                using (StreamWriter newFile = new StreamWriter("users.txt"))
+                {
+
+                }
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -58,7 +76,45 @@ namespace Receipt
             }
             else
             {
-                for(int i=0;i<usersList.Count;i++)
+                string UsTest="";
+                string PassTest = "";
+
+                StreamReader sr = new StreamReader("users.txt");
+                // File !
+                string Line = "";
+                while(Line!=null)
+                {
+                    Line = sr.ReadLine();
+                    if(Line != null)
+                    {
+                        UsTest = Line.Split('|')[0];
+                        PassTest = Line.Split('|')[1];
+
+                        if(UsTest== textBoxUsername.Text)
+                        {
+                            if (textBoxPassword.Text == PassTest)
+                            {
+                                userName = UsTest;
+                                SignIn = true;
+                            }
+                            else
+                            {
+                                Result.Text = "Wrong username or password!";
+                            }
+                            break;
+
+                        }
+                    }
+                  
+                }
+                sr.Close();
+
+
+
+
+                //========================================
+                /// local variables
+                /*for(int i=0;i<usersList.Count;i++)
                 {
                     if (textBoxUsername.Text == usersList[i].Username)
                     {
@@ -73,7 +129,7 @@ namespace Receipt
                         }
                         break;
                     }
-                }
+                }*/
             }
 
             //////========================
@@ -101,12 +157,52 @@ namespace Receipt
 
         private void CreatAccount_Click(object sender, EventArgs e)
         {
+
+            
+
+
             SignUp signupform = new SignUp();
-     
+            bool Exist = false;
+
             if (signupform.ShowDialog()==DialogResult.OK)
             {
+                if(File.Exists("users.txt")==false)
+                {
+                    using (StreamWriter newFile=new StreamWriter("users.txt"))
+                    {
+
+                    }
+                }
                 if (signupform.Error == false)
-                    usersList.Add(new User(signupform.firstname, signupform.lastname, signupform.email,signupform.username, signupform.pass));
+                {
+                    StreamReader sr = new StreamReader("users.txt");
+                    string Line = "";
+
+                    while (Line!=null)
+                    {
+                        Line = sr.ReadLine(); //// split nemishe az inja kard! chon exeption mide XD
+                        if(Line!=null)
+                        {
+                            Line = Line.Split('|')[0];
+                            if (signupform.username == Line)
+                            {
+                                Exist = true;
+                                MessageBox.Show("You cant choose this user name ! (" + signupform.username + ")  (This username was taken)");  
+                                break;
+                            }
+
+                        }
+                    }
+                    sr.Close();
+                    if (Exist == false)
+                    {
+                        //usersList.Add(new User(signupform.firstname, signupform.lastname, signupform.email,signupform.username, signupform.pass));
+                        StreamWriter sw = new StreamWriter("users.txt",true);
+                        sw.WriteLine(signupform.username+"|"+ signupform.pass+"|"+ signupform.firstname+"|"+ signupform.lastname+"|"+ signupform.email);
+                        sw.Close();
+                       
+                    }
+                }
                 
             }
         }
@@ -119,7 +215,7 @@ namespace Receipt
         private void info_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Github:  "+"https://github.com/AryanaBakhshandeh");
-
+            
         }
     }
 }
