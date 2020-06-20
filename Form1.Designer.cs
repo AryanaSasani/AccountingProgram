@@ -78,7 +78,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe Script", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(421, 44);
+            this.label3.Location = new System.Drawing.Point(420, 40);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(172, 34);
@@ -148,7 +148,7 @@
             this.Result.AutoSize = true;
             this.Result.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Result.ForeColor = System.Drawing.Color.Red;
-            this.Result.Location = new System.Drawing.Point(424, 72);
+            this.Result.Location = new System.Drawing.Point(414, 75);
             this.Result.Name = "Result";
             this.Result.Size = new System.Drawing.Size(0, 15);
             this.Result.TabIndex = 4;

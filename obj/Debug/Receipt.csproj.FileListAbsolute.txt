@@ -1,7 +1,6 @@
 C:\Users\Aryana\source\repos\Receipt\bin\Debug\Receipt.exe.config
 C:\Users\Aryana\source\repos\Receipt\bin\Debug\Receipt.exe
 C:\Users\Aryana\source\repos\Receipt\bin\Debug\Receipt.pdb
-C:\Users\Aryana\source\repos\Receipt\obj\Debug\Receipt.csprojAssemblyReference.cache
 C:\Users\Aryana\source\repos\Receipt\obj\Debug\Receipt.Form1.resources
 C:\Users\Aryana\source\repos\Receipt\obj\Debug\Receipt.Properties.Resources.resources
 C:\Users\Aryana\source\repos\Receipt\obj\Debug\Receipt.csproj.GenerateResource.cache
@@ -11,3 +10,6 @@ C:\Users\Aryana\source\repos\Receipt\obj\Debug\Receipt.pdb
 C:\Users\Aryana\source\repos\Receipt\obj\Debug\Receipt.Form3.resources
 C:\Users\Aryana\source\repos\Receipt\obj\Debug\Receipt.Form2.resources
 C:\Users\Aryana\source\repos\Receipt\obj\Debug\Receipt.SignUp.resources
+C:\Users\Aryana\source\repos\Receipt\obj\Debug\Receipt.CustomersInfo.resources
+C:\Users\Aryana\source\repos\Receipt\obj\Debug\Receipt.csprojAssemblyReference.cache
+C:\Users\Aryana\source\repos\Receipt\obj\Debug\Receipt.Form4.resources
